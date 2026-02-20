@@ -4,7 +4,6 @@ const morgan = require('morgan');
 
 const authRoutes = require('./routes/auth.routes');
 const policyRoutes = require('./routes/policy.routes');
-
 const app = express();
 
 app.use(cors());

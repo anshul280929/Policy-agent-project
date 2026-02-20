@@ -1,8 +1,14 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-router.get('/health', (req,res)=>{
-  res.json({ message: "Policy route working" });
-});
+const policyController = require("../controllers/policy.controller");
+const authMiddleware = require("../middlewares/auth.middleware");
+
+// Create Policy Draft
+router.post(
+  "/",
+  authMiddleware,
+  policyController.createPolicy
+);
 
 module.exports = router;
